@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+  Aged-paper starting template for an RPG handout.
+  Copy this, swap the font <link>, the .hand styles, and the body content
+  for the document type you need (see techniques.md). Portrait A4 by default;
+  for landscape change @page to "size: A4 landscape" and .page to 29.7cm × 21cm.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Handout</title>
+<link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Libre+Baskerville&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #555; display: flex; justify-content: center; padding: 2em 0; }
+  .page {
+    width: 21cm; min-height: 29.7cm; padding: 3cm 3.2cm;
+    background:
+      radial-gradient(ellipse at 18% 12%, rgba(160,120,60,.10), transparent 42%),
+      radial-gradient(ellipse at 85% 30%, rgba(140,100,50,.08), transparent 38%),
+      radial-gradient(ellipse at 70% 95%, rgba(120,90,40,.12), transparent 45%),
+      linear-gradient(160deg, #efe5cc 0%, #e8dcc0 40%, #e3d5b6 100%);
+    box-shadow: 0 4px 24px rgba(0,0,0,.5), inset 0 0 90px rgba(120,90,40,.18);
+    position: relative;
+  }
+  @media print { body { background:#fff; padding:0; } .page { box-shadow:none; } }
+
+  /* swap these for the document type */
+  .hand { font-family: 'La Belle Aurore', cursive; font-size: 16.5pt; line-height: 1.75; color: #2e3a55; }
+  .hand p { margin: 0 0 1.1em; text-indent: 1.2em; }
+
+  .keeper-note { font-size: 7.5pt; color: #999; text-align: right; margin-top: 2em; font-style: italic; font-family: sans-serif; }
+  @media print { .keeper-note { display: none; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hand">
+    <p>Handout text goes here, reproduced verbatim.</p>
+  </div>
+  <div class="keeper-note">Keeper note — never printed.</div>
+</div>
+</body>
+</html>
