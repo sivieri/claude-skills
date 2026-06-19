@@ -86,3 +86,9 @@ Core principle: **different in-fiction writers get different fonts**, even acros
 ## Print dialog reminder (give once)
 
 Open each file online at least once so Google Fonts cache. Then: browser print → **margins: none**, **enable "background graphics"**, correct paper orientation per file.
+
+## Heavy / slow-to-open PDFs
+
+If a Chrome "Print to PDF" handout opens sluggishly (especially in macOS Preview), the cause is almost always a **`mix-blend-mode` or CSS `filter`** in the stylesheet: it makes Chrome flatten the page into a full-page lossless bitmap that the viewer must decode on every open. The fix is in the **source**, not post-processing — remove the blend mode / filter and reproduce the effect with a normal-composited translucent gradient (see "Keep backgrounds vector" in SKILL.md). Re-export from Chrome; the text should now be selectable in the PDF.
+
+**Do not reach for Ghostscript** (`gs -dPDFSETTINGS=/ebook …`) to shrink these: it only re-compresses the same bitmap (so open-time barely improves) and it strips the embedded colour profile, which makes the parchment render noticeably **darker** vs the black text. It's the wrong tool for this symptom.
